@@ -1,0 +1,82 @@
+meta:
+  author: SebDaBaBo
+  name: SebDaBaBo SebDaBaBo
+points:
+  zones:
+    matrix:
+      columns:
+        pinky:
+          key.column_net: P020
+          rows:
+            num:
+              row_net: P031
+        ring:
+          key.stagger: 0.25u
+          key.column_net: P022
+          rows:
+            num:
+              row_net: P031
+        middle:
+          key.stagger: 0.5u
+          key.column_net: P024
+          rows:
+            num:
+              row_net: P031
+        index:
+          key.stagger: 0.75u
+          key.column_net: P100
+        mod:
+          key.column_net: P011
+      rows:
+        bottom:
+          row_net: P115
+        home:
+          row_net: P002
+        top:
+          row_net: P029
+    thumbfan:
+      anchor:
+        ref: matrix_index_bottom
+        shift: [0, -u]
+      columns:
+        index:
+          key.column_net: P100
+        mod:
+          key.spread: 19.25
+          key.splay: -20
+          key.origin: [-0.5u, -8]
+          key.column_net: P011
+        far:
+          key.spread: 19.25
+          key.splay: -20
+          key.origin: [-0.5u, -8]
+          key.column_net: P104
+      rows:
+        thumb:
+          row_net: P113
+outlines:
+  left:
+    - where: true
+      what: rectangle
+      size: [cx + 2, cy + 2]
+      fillet: 2
+pcbs:
+  left:
+    outlines:
+      main:
+        outline: left
+    footprints:
+      keyswitches:
+        where: true
+        what: choc
+        params:
+          hotswap: true
+          from: "{{col_net}}"
+          to: "{{colrow}}"
+      nice_nano:
+        what: nice_nano
+        params:
+          orientation: up
+        where:
+          ref: matrix_mod_top
+          shift: [-9, -2]
